@@ -3,20 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {initialize} from './functions/index'
 import LimitCard from './components/LimitCard'
-
-
-var userDetails;
-var initializePromise = initialize();
-initializePromise.then(function(result) {
-    userDetails = result;
-    console.log("Initialized user details");
-    // Use user details from here
-    console.log(userDetails)
-}, function(err) {
-    console.log(err);
-})
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
