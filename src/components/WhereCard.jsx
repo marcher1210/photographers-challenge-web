@@ -15,14 +15,14 @@ export class WhereCard extends Card {
         };
     }
     image() {
-        return (<img src={this.state.src}/>);
+        return (<img src={this.state.src} alt="Map"/>);
     }
     caption() {
         return (
             <div>
                 <div class="caption">Where</div>
                 <div class="smallcaption">
-                    <a href={this.state.href} target="_blank">
+                    <a href={this.state.href} target="_blank" rel="noreferrer">
                         ({this.state.point.x},{this.state.point.y})
                     </a>
                 </div>

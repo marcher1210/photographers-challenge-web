@@ -33,7 +33,7 @@ export class WhereCard extends Card {
                     position: "relative",
                     backgroundImage: "url('https://blankcalendarpages.com/printable_calendar/monday1/" + this.state.monthName + "-" + this.state.year + "-calendar-monday-start1.jpg')"
                 }}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Red_X_Freehand.svg"
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Red_X_Freehand.svg" alt="Calendar"
                     style={{
                         position: "absolute",
                         width: "10%",

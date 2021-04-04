@@ -1,6 +1,4 @@
 import React from 'react';
-import LimitCard from './LimitCard';
-import Card from './Card'
 import WhatCard from './WhatCard'
 import WhenCard from './WhenCard'
 import WhereCard from './WhereCard'

@@ -42,7 +42,7 @@ const PagesContent = () => {
                 }
             });
         }
-    }, [account, inProgress, instance]);
+    }, [account, inProgress, instance, responseData]);
   
     return (
         <div class="wrapper">
