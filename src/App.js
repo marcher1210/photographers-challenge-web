@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Page from './components/Page'
+import PhotoChallengePage from './components/PhotoChallengePage'
 var request = require("request");
 
 export class App extends React.Component {
@@ -46,7 +46,7 @@ export class App extends React.Component {
           <h1>Photo project</h1>
         </div>
         {this.state.whats.map(function (element, index) {
-         return <Page what={element.what} when={element.when} where={JSON.stringify(element.where)} />
+         return <PhotoChallengePage what={element.what} when={element.when} where={JSON.stringify(element.where)} />
 
         })}
       </div>
