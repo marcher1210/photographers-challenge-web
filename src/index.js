@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { PublicClientApplication } from "@azure/msal-browser";
+import { msalConfig } from "./authConfig";
+
+import App from './App.jsx';
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import LimitCard from './components/LimitCard'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/**
+ * MSAL should be instantiated outside of the component tree to prevent it from being re-instantiated on re-renders. 
+ * For more, visit: https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md
+ */
+const msalInstance = new PublicClientApplication(msalConfig);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+  <React.StrictMode>
+    <App instance={msalInstance} />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
