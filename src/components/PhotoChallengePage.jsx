@@ -1,11 +1,9 @@
 import React from 'react';
-import LimitCard from './LimitCard';
-import Card from './Card'
 import WhatCard from './WhatCard'
 import WhenCard from './WhenCard'
 import WhereCard from './WhereCard'
 
-export class Page extends React.Component {
+export class PhotoChallengePage extends React.Component {
 
     render() {
         var point = JSON.parse(this.props.where);
@@ -26,4 +24,4 @@ export class Page extends React.Component {
     }
 }
 
-export default Page;
+export default PhotoChallengePage;
