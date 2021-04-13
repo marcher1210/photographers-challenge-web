@@ -12,22 +12,22 @@ import { LogLevel } from "@azure/msal-browser";
  */
 export const b2cPolicies = {
     names: {
-        signUpSignIn: "b2c_1_signupsignin1",
-        forgotPassword: "b2c_1_reset",
-        editProfile: "B2C_1_profileediting1"
+        signUpSignIn:   process.env.REACT_APP_B2C_SIGNUP_SIGNIN,
+        forgotPassword: process.env.REACT_APP_B2C_FORGOT_PASSWORD,
+        editProfile:    process.env.REACT_APP_B2C_EDIT_PROFILE,
     },
     authorities: {
         signUpSignIn: {
-            authority: "https://danotographer.b2clogin.com/danotographer.onmicrosoft.com/b2c_1_signupsignin1",
+            authority: "https://"+process.env.REACT_APP_B2C_AUTHORITY_DOMAIN+"/"+process.env.REACT_APP_B2C_DOMAIN_NAME+"/"+process.env.REACT_APP_B2C_SIGNUP_SIGNIN,
         },
         forgotPassword: {
-            authority: "https://danotographer.b2clogin.com/danotographer.onmicrosoft.com/b2c_1_reset",
+            authority: "https://"+process.env.REACT_APP_B2C_AUTHORITY_DOMAIN+"/"+process.env.REACT_APP_B2C_DOMAIN_NAME+"/"+process.env.REACT_APP_B2C_FORGOT_PASSWORD,
         },
         editProfile: {
-            authority: "https://danotographer.b2clogin.com/danotographer.onmicrosoft.com/b2c_1_profileediting1"
+            authority: "https://"+process.env.REACT_APP_B2C_AUTHORITY_DOMAIN+"/"+process.env.REACT_APP_B2C_DOMAIN_NAME+"/"+process.env.REACT_APP_B2C_EDIT_PROFILE,
         }
     },
-    authorityDomain: "danotographer.b2clogin.com"
+    authorityDomain: process.env.REACT_APP_B2C_AUTHORITY_DOMAIN
 }
 
 
@@ -38,10 +38,10 @@ export const b2cPolicies = {
  */
 export const msalConfig = {
     auth: {
-        clientId: "d33591e6-dfe2-4c5d-9fac-b348a80a463e", // This is the ONLY mandatory field that you need to supply.
+        clientId: process.env.REACT_APP_MSAL_CLIENTID, // This is the ONLY mandatory field that you need to supply.
         authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose SUSI as your default authority.
         knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
-        redirectUri: "http://localhost:3000/", // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
+        redirectUri: process.env.REACT_APP_MSAL_REDIRECT_URL, // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
         postLogoutRedirectUri: "/", // Indicates the page to navigate after logout.
         navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
     },
@@ -82,7 +82,7 @@ export const msalConfig = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-    scopes: ["https://danotographer.onmicrosoft.com/0e813c96-a76a-421d-8983-d7d091099fab/access_as_user"]
+    scopes: [process.env.REACT_APP_MSAL_API_APPLICATION_ID_URI+"/access_as_user"]
 };
 
 /**
@@ -91,7 +91,7 @@ export const loginRequest = {
  */
 export const protectedResources = {
     apiPages: {
-        endpoint: "http://127.0.0.1:5000/api/pages?n=10",
-        scopes: ["https://danotographer.onmicrosoft.com/0e813c96-a76a-421d-8983-d7d091099fab/access_as_user"], // e.g. api://xxxxxx/access_as_user
+        endpoint: process.env.REACT_APP_API_URI+"/api/pages?n=10",
+        scopes: [process.env.REACT_APP_MSAL_API_APPLICATION_ID_URI+"/access_as_user"], // e.g. api://xxxxxx/access_as_user
     }
 }
