@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '40c2457d-d94b-424f-a403-7c1d02fd6435'
-  imageRepository: 'phototographerschallengeweb'
+  imageRepository: 'photographers-challenge-web'
   containerRegistry: 'danotographerregistry.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
