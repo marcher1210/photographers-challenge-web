@@ -91,7 +91,7 @@ export const loginRequest = {
  */
 export const protectedResources = {
     apiPages: {
-        endpoint: process.env.REACT_APP_API_URI+"/api/pages?n=10",
+        endpoint: process.env.REACT_APP_API_URI+"/pages?n=10",
         scopes: [process.env.REACT_APP_MSAL_API_APPLICATION_ID_URI+"/access_as_user"], // e.g. api://xxxxxx/access_as_user
     }
 }

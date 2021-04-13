@@ -9,7 +9,7 @@ export class WhereCard extends Card {
                 x: props.x,
                 y: props.y
             },
-            src: "https://photographerschallenge.azurewebsites.net/map"+(props.local ? "local" : "overview")+"?lon="+props.x+"&lat="+props.y,
+            src: process.env.REACT_APP_API_URI+"/render/map/"+(props.local ? "local" : "overview")+"?lon="+props.x+"&lat="+props.y,
             href: "http://www.google.com/maps/place/"+props.y+","+props.x,
             caption: "Where"
         };
